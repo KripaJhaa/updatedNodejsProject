@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="script/vue.js"></script>
+    <script src="script/axios.js"></script>
+    
+    <link rel="stylesheet" href="contents/main.css">
+
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark m-3">
+            <!-- Brand/logo -->
+
+            <ul class="navbar-nav p-3">
+                <li class="nav-item">
+                    <button class="btn button-blue" @click="addProduct">Add Product</button>
+                </li>&nbsp;&nbsp;
+                <li class="nav-item">
+                    <button class="btn button-blue" @click="myCart">My cart</button>
+                </li>
+            </ul>
+
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button class="btn button-blue" @click="login">Login</button>
+                    </li>&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <button class="btn button-blue" @click="signUp">Sign up</button>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+        <div class="container">
+
+
+
+            <div class="row" id="product-list">
+
+                <div v-if="products==''">
+                    <h3>No, Product Yet Added Go to Add Product Now</h3>
+                </div>
+                <div v-for=" product in products">
+
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./contents/image/Dummy.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.name}} &nbsp;&nbsp;&nbsp;
+                                <span>Price: {{product.price}}</span>
+                            </h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary" @click="addToCart(product)">Add</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script/mainVue.js"></script>
+    
+  
+
+</body>
+
+</html>
